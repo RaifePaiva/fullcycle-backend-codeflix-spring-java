@@ -20,7 +20,7 @@ bootJar {
     destinationDirectory.set(rootProject.layout.buildDirectory.dir('libs'))
 }
 
-group = 'com.fullcycle.admin.catalogo.application'
+group = 'com.fullcycle.admin.catalogo.infrastructure'
 version = '1.0-SNAPSHOT'
 
 repositories {

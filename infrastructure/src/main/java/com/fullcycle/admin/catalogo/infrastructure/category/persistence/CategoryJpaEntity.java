@@ -1,4 +1,4 @@
-package com.fullcycle.admin.catalogo.application.category.persistence;
+package com.fullcycle.admin.catalogo.infrastructure.category.persistence;
 
 import com.fullcycle.admin.catalogo.domain.category.Category;
 import com.fullcycle.admin.catalogo.domain.category.CategoryID;

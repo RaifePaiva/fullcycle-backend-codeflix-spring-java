@@ -1,4 +1,4 @@
-package com.fullcycle.admin.catalogo.application;
+package com.fullcycle.admin.catalogo.infrastructure;
 
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtendWith;
