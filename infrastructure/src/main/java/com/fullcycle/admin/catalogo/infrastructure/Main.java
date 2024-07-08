@@ -20,17 +20,4 @@ public class Main {
         System.setProperty(AbstractEnvironment.DEFAULT_PROFILES_PROPERTY_NAME, "development");
         SpringApplication.run(WebServerConfig.class, args);
     }
-
-    @Bean
-    @DependsOnDatabaseInitialization
-    ApplicationRunner applicationRunner(
-            @Autowired CreateCategoryUseCase createCategoryUseCase,
-            @Autowired UpdateCategoryUseCase updateCategoryUseCase,
-            @Autowired DeleteCategoryUseCase deleteCategoryUseCase,
-            @Autowired ListCategoriesUseCase listCategoriesUseCase,
-            @Autowired GetCategoryByIdUseCase getCategoryByIdUseCase
-            ) {
-        return args -> {
-        };
-    }
 }
