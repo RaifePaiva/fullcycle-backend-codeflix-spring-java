@@ -138,3 +138,7 @@ Pinfrastructure/src/test/java/com/fullcycle/admin/catalogo/CleanUpExtensions.jav
 Ninfrastructure/src/test/java/com/fullcycle/admin/catalogo/IntegrationTest.java,c\6\c60888f9930f19e00c17a4f41bea908e91e90049
 
 Oinfrastructure/src/test/java/com/fullcycle/admin/catalogo/MySQLGatewayTest.java,8\f\8f4466c3a31bb2a992805332e7d6f0cfc1e8a027
+ç
+]infrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/api/CategoryAPI.java,b\5\b51baa6622b4396336ba0dc27f015b24ba956d57
+†
+pinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/api/controllers/CategoryController.java,0\1\0176e2e72e07d785e548c63218f9536db958e223
