@@ -142,3 +142,9 @@ Oinfrastructure/src/test/java/com/fullcycle/admin/catalogo/MySQLGatewayTest.java
 ]infrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/api/CategoryAPI.java,b\5\b51baa6622b4396336ba0dc27f015b24ba956d57
  
 pinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/api/controllers/CategoryController.java,0\1\0176e2e72e07d785e548c63218f9536db958e223
+}
+Minfrastructure/src/test/java/com/fullcycle/admin/catalogo/ControllerTest.java,7\d\7df58189e2ff2597cea40f2f2a38778181b26b1f
+‘
+ainfrastructure/src/test/java/com/fullcycle/admin/catalogo/infrastructure/api/CategoryAPITest.java,3\0\3034bb47aa85e717d26abf305f11510355545fba
+¤
+tinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/category/models/CreateCategoryApiInput.java,a\5\a53689bbf564115dcae5541e0c76e69aa4df9162
