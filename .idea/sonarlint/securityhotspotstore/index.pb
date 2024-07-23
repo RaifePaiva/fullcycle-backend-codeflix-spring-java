@@ -156,3 +156,5 @@ oinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/catego
 vinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/category/presenters/CategoryApiPresenter.java,5\3\5374f0806f42b921dab647398d16916750fd20f5
 Š
 Zdomain/src/main/java/com/fullcycle/admin/catalogo/domain/exceptions/NotFoundException.java,0\2\02787d506a3e897d946b44782e2310c6e041f091
+¤
+tinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/category/models/UpdateCategoryApiInput.java,c\d\cde8f6ffaccc0e62651330291e39bd5585badf86
