@@ -148,3 +148,11 @@ Minfrastructure/src/test/java/com/fullcycle/admin/catalogo/ControllerTest.java,
 ainfrastructure/src/test/java/com/fullcycle/admin/catalogo/infrastructure/api/CategoryAPITest.java,3\0\3034bb47aa85e717d26abf305f11510355545fba
 ¤
 tinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/category/models/CreateCategoryApiInput.java,a\5\a53689bbf564115dcae5541e0c76e69aa4df9162
+¤
+tinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/api/controllers/GlobalExceptionHandler.java,5\6\56626aaa27dad4222c3d1b448aca1a5b4602f2dc
+Ÿ
+oinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/category/models/CategoryApiOutput.java,8\6\8669038d8cd25ee8a93a8bda50c29374d184cfe2
+¦
+vinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/category/presenters/CategoryApiPresenter.java,5\3\5374f0806f42b921dab647398d16916750fd20f5
+Š
+Zdomain/src/main/java/com/fullcycle/admin/catalogo/domain/exceptions/NotFoundException.java,0\2\02787d506a3e897d946b44782e2310c6e041f091
