@@ -158,3 +158,15 @@ vinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/catego
 Zdomain/src/main/java/com/fullcycle/admin/catalogo/domain/exceptions/NotFoundException.java,0\2\02787d506a3e897d946b44782e2310c6e041f091
 ¤
 tinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/category/models/UpdateCategoryApiInput.java,c\d\cde8f6ffaccc0e62651330291e39bd5585badf86
+ž
+ninfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/configuration/ObjectMapperConfig.java,a\8\a804e3217cc1e10613908a3a8907844472a58b16
+•
+einfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/configuration/json/Json.java,a\c\ac709c0f9b0937daac16b8b74cb6e9f18503875f
+¢
+rinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/category/models/CategoryListResponse.java,3\d\3dbf584b3ca07df06f41c5aa752bb0169425d815
+£
+sinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/category/models/UpdateCategoryRequest.java,3\5\355810213d0da1c5cd62bf0063781e719c1f6f41
+£
+sinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/category/models/CreateCategoryRequest.java,5\8\58748baed3be0939da4f43aaeaabada422ed8356
+ž
+ninfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/category/models/CategoryResponse.java,1\c\1cbaa4cb6f7f41956797a7039877aeb532308b8b
