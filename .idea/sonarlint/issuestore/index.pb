@@ -170,3 +170,15 @@ sinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/catego
 sinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/category/models/CreateCategoryRequest.java,5\8\58748baed3be0939da4f43aaeaabada422ed8356
 ž
 ninfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/category/models/CategoryResponse.java,1\c\1cbaa4cb6f7f41956797a7039877aeb532308b8b
+z
+Jinfrastructure/src/test/java/com/fullcycle/admin/catalogo/JacksonTest.java,6\2\62ef6c0d598667349d4a7ec326f1fcc7d200900b
+¢
+rinfrastructure/src/test/java/com/fullcycle/admin/catalogo/infrastructure/category/models/CategoryResponseTest.java,9\8\9801fbaa837b63aab7d8d1eef5b8ee2c2b67f84c
+§
+winfrastructure/src/test/java/com/fullcycle/admin/catalogo/infrastructure/category/models/UpdateCategoryRequestTest.java,2\d\2dd1451339d88c7f58fbfde649f0e29cb0211988
+¦
+vinfrastructure/src/test/java/com/fullcycle/admin/catalogo/infrastructure/category/models/CategoryListResponseTest.java,0\e\0ec7ae779fe33cd466b5284416aa9fb4d1f15081
+£
+sinfrastructure/src/test/java/com/fullcycle/admin/catalogo/infrastructure/category/models/CreateCategoryRequest.java,6\2\62b150a09e607978ef21ba6f8506205ec958a476
+§
+winfrastructure/src/test/java/com/fullcycle/admin/catalogo/infrastructure/category/models/CreateCategoryRequestTest.java,0\f\0f7525776a7b7b4f0338184dc05e2273c26f3402
