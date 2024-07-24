@@ -2,8 +2,8 @@ package com.fullcycle.admin.catalogo.infrastructure.category.presenters;
 
 import com.fullcycle.admin.catalogo.application.category.retrieve.get.CategoryOutput;
 import com.fullcycle.admin.catalogo.application.category.retrieve.list.CategoryListOutput;
-import com.fullcycle.admin.catalogo.infrastructure.category.models.CategoryResponse;
 import com.fullcycle.admin.catalogo.infrastructure.category.models.CategoryListResponse;
+import com.fullcycle.admin.catalogo.infrastructure.category.models.CategoryResponse;
 
 public interface CategoryApiPresenter {
 

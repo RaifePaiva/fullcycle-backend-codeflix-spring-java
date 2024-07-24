@@ -5,7 +5,6 @@ import com.fullcycle.admin.catalogo.application.category.create.CreateCategoryOu
 import com.fullcycle.admin.catalogo.application.category.create.CreateCategoryUseCase;
 import com.fullcycle.admin.catalogo.application.category.delete.DeleteCategoryUseCase;
 import com.fullcycle.admin.catalogo.application.category.retrieve.get.GetCategoryByIdUseCase;
-import com.fullcycle.admin.catalogo.application.category.retrieve.list.CategoryListOutput;
 import com.fullcycle.admin.catalogo.application.category.retrieve.list.ListCategoriesUseCase;
 import com.fullcycle.admin.catalogo.application.category.update.UpdateCategoryCommand;
 import com.fullcycle.admin.catalogo.application.category.update.UpdateCategoryOutput;
