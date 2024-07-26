@@ -45,7 +45,6 @@ public interface CategoryAPI {
 
     @GetMapping(
             value = "/{id}",
-            consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     @Operation(summary = "Get a category by it's identifier")
@@ -71,17 +70,16 @@ public interface CategoryAPI {
 
     @DeleteMapping(
             value = "/{id}",
-            consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @Operation(summary = "Update a category by it's identifier")
+    @Operation(summary = "Delete a category by it's identifier")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Category deleted successfully"),
             @ApiResponse(responseCode = "404", description = "Category was not found"),
             @ApiResponse(responseCode = "500", description = "An internal server error was thrown"),
     })
-    void deleteById(@PathVariable("id") final String id);
+    void deleteById(@PathVariable("id") String id);
 
 
 }
