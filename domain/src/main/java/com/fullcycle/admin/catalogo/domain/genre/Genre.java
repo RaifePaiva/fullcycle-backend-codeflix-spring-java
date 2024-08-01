@@ -137,4 +137,24 @@ public class Genre extends AggregateRoot<GenreID> {
             throw new NotificationException("Failed to validate Aggregate Genre", notification);
         }
     }
+
+    public Genre addCategory(final CategoryID categoryID) {
+        if(categoryID == null){
+            return this;
+        }
+
+        this.categories.add(categoryID);
+        this.updatedAt = InstantUtils.now();
+        return this;
+    }
+
+    public Genre removeCategory(final CategoryID categoryID) {
+        if(categoryID == null){
+            return this;
+        }
+
+        this.categories.remove(categoryID);
+        this.updatedAt = InstantUtils.now();
+        return this;
+    }
 }

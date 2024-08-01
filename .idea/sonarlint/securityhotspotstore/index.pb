@@ -190,3 +190,7 @@ Pdomain/src/main/java/com/fullcycle/admin/catalogo/domain/utils/InstantUtils.jav
 Rdomain/src/main/java/com/fullcycle/admin/catalogo/domain/genre/GenreValidator.java,f\8\f8f687ad87956f7aaae9176b7b0cd9ce378867df
 Ž
 ^domain/src/main/java/com/fullcycle/admin/catalogo/domain/exceptions/NotificationException.java,6\7\67bd964f584c109f17654f6d7fe3008644074bc7
+€
+Pdomain/src/main/java/com/fullcycle/admin/catalogo/domain/genre/GenreGateway.java,3\d\3d1c71e89db848d69ade04f9e0a15123f42ec88b
+„
+Tdomain/src/main/java/com/fullcycle/admin/catalogo/domain/pagination/SearchQuery.java,c\0\c01ca0d0accee6691a0b9488bc907194b0cadf32
