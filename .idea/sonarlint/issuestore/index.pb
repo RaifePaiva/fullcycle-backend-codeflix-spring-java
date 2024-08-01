@@ -13,8 +13,6 @@ K
 infrastructure/build.gradle,d\0\d08ad7275ca05d13cb570f6f624eee8075619a60
 
 Odomain/src/main/java/com/fullcycle/admin/catalogo/domain/category/Category.java,3\7\37797fd7bcfb40159f7a682bdfc2f4fb5e7808db
-ƒ
-Sdomain/src/test/java/com/fullcycle/admin/catalogo/domain/category/CategoryTest.java,d\3\d36e1e552e96366d8a186df068b62aaa5b6e2295
 y
 Idomain/src/main/java/com/fullcycle/admin/catalogo/domain/ValueObject.java,1\0\10903ec1a786cca677e1535fc0a9add7b41d3bc1
 t
@@ -178,3 +176,17 @@ v
 Finfrastructure/src/test/java/com/fullcycle/admin/catalogo/E2ETest.java,5\2\525cf6c9acef8a360504f7df5132e0fe1203beba
 ‚
 Rinfrastructure/src/test/java/com/fullcycle/admin/catalogo/e2e/CategoryE2ETest.java,9\b\9b9e311039dd6efaf7203957617675f67fe328a4
+Œ
+\domain/src/test/java/com/fullcycle/admin/catalogo/domain/category/category/CategoryTest.java,f\0\f0eacbb227876cf3166711cf3f41cb7de1a66818
+†
+Vdomain/src/test/java/com/fullcycle/admin/catalogo/domain/category/genre/GenreTest.java,0\4\04f2c310c9e6570f3bbff94bec76b9bd7ba5b6d4
+y
+Idomain/src/main/java/com/fullcycle/admin/catalogo/domain/genre/Genre.java,8\3\832b892c03f3d8bec3c9fae9130c5ac743d120bd
+{
+Kdomain/src/main/java/com/fullcycle/admin/catalogo/domain/genre/GenreID.java,c\6\c6c1dbd493407a72ad5740a1ad19b56cf42a8692
+€
+Pdomain/src/main/java/com/fullcycle/admin/catalogo/domain/utils/InstantUtils.java,3\d\3d271756ce5d5937f022ef2942690a05da8b8dd7
+‚
+Rdomain/src/main/java/com/fullcycle/admin/catalogo/domain/genre/GenreValidator.java,f\8\f8f687ad87956f7aaae9176b7b0cd9ce378867df
+Ž
+^domain/src/main/java/com/fullcycle/admin/catalogo/domain/exceptions/NotificationException.java,6\7\67bd964f584c109f17654f6d7fe3008644074bc7
