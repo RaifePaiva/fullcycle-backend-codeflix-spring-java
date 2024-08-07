@@ -254,3 +254,5 @@ oinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/genre/
 Zinfrastructure/src/test/java/com/fullcycle/admin/catalogo/infrastructure/package-info.java,8\7\874297c533af5b20e899800b13e2bb0d2a2cb641
 ™
 iinfrastructure/src/test/java/com/fullcycle/admin/catalogo/infrastructure/genre/GenreMySQLGatewayTest.java,d\4\d418194a96877e0dcd6ae471d7b8ce33e6f6db4a
+§
+winfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/configuration/usecases/GenreUseCaseConfig.java,1\9\19c4b27c1b5ec9d2cd0d5657d8dd5211afc0d8b7

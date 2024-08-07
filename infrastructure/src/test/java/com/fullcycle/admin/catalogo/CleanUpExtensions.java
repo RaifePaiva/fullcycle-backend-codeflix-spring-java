@@ -17,9 +17,11 @@ public class CleanUpExtensions implements BeforeEachCallback {
     public void beforeEach(final ExtensionContext context) {
         final var appContext = SpringExtension.getApplicationContext(context);
 
+        //a ordem da instrução abaixo, faz toda diferença,
+        // pois o GenreRepository depende do CategoryRepository
         cleanUp(List.of(
-                appContext.getBean(CategoryRepository.class),
-                appContext.getBean(GenreRepository.class)
+                appContext.getBean(GenreRepository.class),
+                appContext.getBean(CategoryRepository.class)
         ));
 
         final var em = appContext.getBean(TestEntityManager.class);
