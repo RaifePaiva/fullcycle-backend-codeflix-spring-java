@@ -220,10 +220,6 @@ kapplication/src/test/java/com/fullcycle/admin/catalogo/application/genre/delete
 napplication/src/main/java/com/fullcycle/admin/catalogo/application/genre/delete/DefaultDeleteGenreUseCase.java,1\d\1def9a6c20a05cb449c8ba05a4a892542e807163
 —
 gapplication/src/main/java/com/fullcycle/admin/catalogo/application/genre/delete/DeleteGenreUseCase.java,a\f\af3236999227b8640a15c264e591742714c78c11
-“
-capplication/src/main/java/com/fullcycle/admin/catalogo/application/genre/retrieve/package-info.java,1\2\1206bce200ce830f6dbb74a694be2453cb8e31cd
-¢
-rapplication/src/main/java/com/fullcycle/admin/catalogo/application/genre/retrieve/get/GetGenreByIdUseCaseTest.java,7\6\769b36638db9cdc089bb14c0d8899bf6df346897
 ¢
 rapplication/src/test/java/com/fullcycle/admin/catalogo/application/genre/retrieve/get/GetGenreByIdUseCaseTest.java,8\e\8e4c2bb726a15570a9b8c245257af7524cb47d92
 –
@@ -250,9 +246,9 @@ oinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/genre/
 ninfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/genre/persistence/GenreJpaEntity.java,a\9\a9cce28c8e7c00f0d616011ca74bd5a1ed948982
 Ÿ
 oinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/genre/persistence/GenreRepository.java,9\d\9d0ee65efc8c132a6da38d399d439a88ea83868f
-Š
-Zinfrastructure/src/test/java/com/fullcycle/admin/catalogo/infrastructure/package-info.java,8\7\874297c533af5b20e899800b13e2bb0d2a2cb641
 ™
 iinfrastructure/src/test/java/com/fullcycle/admin/catalogo/infrastructure/genre/GenreMySQLGatewayTest.java,d\4\d418194a96877e0dcd6ae471d7b8ce33e6f6db4a
 §
 winfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/configuration/usecases/GenreUseCaseConfig.java,1\9\19c4b27c1b5ec9d2cd0d5657d8dd5211afc0d8b7
+œ
+linfrastructure/src/test/java/com/fullcycle/admin/catalogo/application/genre/create/CreateGenreUseCaseIT.java,9\6\9658232f20a68ae96b2a2f68bbf42158f02b7792
