@@ -284,3 +284,15 @@ z
 Jinfrastructure/src/test/java/com/fullcycle/admin/catalogo/e2e/MockDsl.java,0\a\0a952d72995c875abc932505414e85e2a6f1effa
 ã
 [infrastructure/src/test/java/com/fullcycle/admin/catalogo/e2e/category/CategoryE2ETest.java,d\5\d50d78550c8df5f52ad96b9166fb4c3439d5db32
+ê
+`domain/src/test/java/com/fullcycle/admin/catalogo/domain/category/castmember/CastMemberTest.java,1\1\1101d9fea717f8a4ad12d39b4e966a46f2df1cd6
+Ö
+Udomain/src/main/java/com/fullcycle/admin/catalogo/domain/castmember/CastMemberID.java,8\2\82601d2699a3d61232609aa7942b147ff24b2e02
+É
+Sdomain/src/main/java/com/fullcycle/admin/catalogo/domain/castmember/CastMember.java,3\1\319dfcfb808bb0d491155cce2b01954b69609aca
+á
+Wdomain/src/main/java/com/fullcycle/admin/catalogo/domain/castmember/CastMemberType.java,2\8\288f964294c45fa740a0204f87f7e1247d2dc1cc
+å
+\domain/src/main/java/com/fullcycle/admin/catalogo/domain/castmember/CastMemberValidator.java,8\9\89161b4d271fdb1e0b4413e468fa86f3d4fd4853
+ä
+Zdomain/src/main/java/com/fullcycle/admin/catalogo/domain/castmember/CastMemberGateway.java,6\1\61be0b04bde097a7b600b7886e1583ac69d9641a
