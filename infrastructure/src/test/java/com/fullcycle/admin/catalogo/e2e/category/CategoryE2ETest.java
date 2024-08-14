@@ -1,4 +1,4 @@
-package com.fullcycle.admin.catalogo.e2e;
+package com.fullcycle.admin.catalogo.e2e.category;
 
 import com.fullcycle.admin.catalogo.E2ETest;
 import com.fullcycle.admin.catalogo.domain.category.CategoryID;

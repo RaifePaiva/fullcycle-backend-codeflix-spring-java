@@ -278,3 +278,9 @@ oinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/genre/
 ^infrastructure/src/test/java/com/fullcycle/admin/catalogo/infrastructure/api/GenreAPITest.java,c\1\c1e69fedbde53b283aec8b5ff67ab1bb29b2eaf3
  
 pinfrastructure/src/main/java/com/fullcycle/admin/catalogo/infrastructure/genre/presenters/GenreApiPresenter.java,d\1\d154439c9cfc63d1acd27d042a368e3b59ab6b4d
+…
+Uinfrastructure/src/test/java/com/fullcycle/admin/catalogo/e2e/genre/GenreE2ETest.java,6\4\6472e3c9cf07599342c707ad7d137136868d3f8e
+z
+Jinfrastructure/src/test/java/com/fullcycle/admin/catalogo/e2e/MockDsl.java,0\a\0a952d72995c875abc932505414e85e2a6f1effa
+‹
+[infrastructure/src/test/java/com/fullcycle/admin/catalogo/e2e/category/CategoryE2ETest.java,d\5\d50d78550c8df5f52ad96b9166fb4c3439d5db32
