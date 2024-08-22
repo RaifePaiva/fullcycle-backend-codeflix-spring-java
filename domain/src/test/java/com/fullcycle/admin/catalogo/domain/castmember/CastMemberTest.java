@@ -1,4 +1,4 @@
-package com.fullcycle.admin.catalogo.domain.category.castmember;
+package com.fullcycle.admin.catalogo.domain.castmember;
 
 import com.fullcycle.admin.catalogo.domain.castmember.CastMember;
 import com.fullcycle.admin.catalogo.domain.castmember.CastMemberType;

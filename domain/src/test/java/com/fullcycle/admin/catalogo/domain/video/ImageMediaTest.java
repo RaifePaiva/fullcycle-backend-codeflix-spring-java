@@ -1,4 +1,4 @@
-package com.fullcycle.admin.catalogo.domain.category.video;
+package com.fullcycle.admin.catalogo.domain.video;
 
 import com.fullcycle.admin.catalogo.domain.video.ImageMedia;
 import org.junit.jupiter.api.Assertions;
