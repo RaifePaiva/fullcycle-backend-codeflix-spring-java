@@ -1,8 +1,6 @@
 package com.fullcycle.admin.catalogo.domain.video;
 
 import com.fullcycle.admin.catalogo.domain.utils.IdUtils;
-import com.fullcycle.admin.catalogo.domain.video.AudioVideoMedia;
-import com.fullcycle.admin.catalogo.domain.video.MediaStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

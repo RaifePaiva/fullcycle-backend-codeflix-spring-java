@@ -11,10 +11,10 @@ import com.fullcycle.admin.catalogo.application.castmember.retrieve.list.CastMem
 import com.fullcycle.admin.catalogo.application.castmember.retrieve.list.DefaultListCastMembersUseCase;
 import com.fullcycle.admin.catalogo.application.castmember.update.DefaultUpdateCastMemberUseCase;
 import com.fullcycle.admin.catalogo.application.castmember.update.UpdateCastMemberOutput;
+import com.fullcycle.admin.catalogo.domain.Fixture;
 import com.fullcycle.admin.catalogo.domain.castmember.CastMember;
 import com.fullcycle.admin.catalogo.domain.castmember.CastMemberID;
 import com.fullcycle.admin.catalogo.domain.castmember.CastMemberType;
-import com.fullcycle.admin.catalogo.domain.Fixture;
 import com.fullcycle.admin.catalogo.domain.exceptions.NotFoundException;
 import com.fullcycle.admin.catalogo.domain.exceptions.NotificationException;
 import com.fullcycle.admin.catalogo.domain.pagination.Pagination;
