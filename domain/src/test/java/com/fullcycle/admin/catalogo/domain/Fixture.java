@@ -152,7 +152,7 @@ public final class Fixture {
             final String checksum = IdUtils.uuid();
             final byte[] content = "Conteudo".getBytes();
 
-            return Resource.with( checksum, content, contentType, type.name().toLowerCase());
+            return Resource.with(content, checksum, contentType, type.name().toLowerCase());
         }
 
         public static String description() {

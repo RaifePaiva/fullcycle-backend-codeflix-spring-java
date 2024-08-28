@@ -22,7 +22,7 @@ import static com.fullcycle.admin.catalogo.domain.Fixture.Videos.image;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-class GetVideoByIdUseCaseTest extends UseCaseTest {
+public class GetVideoByIdUseCaseTest extends UseCaseTest {
 
     @InjectMocks
     private DefaultGetVideoByIdUseCase useCase;
@@ -36,7 +36,7 @@ class GetVideoByIdUseCaseTest extends UseCaseTest {
     }
 
     @Test
-    void givenAValidId_whenCallsGetVideo_shouldReturnIt() {
+    public void givenAValidId_whenCallsGetVideo_shouldReturnIt() {
         // given
         final var expectedTitle = Fixture.title();
         final var expectedDescription = Fixture.Videos.description();
@@ -69,11 +69,11 @@ class GetVideoByIdUseCaseTest extends UseCaseTest {
                         expectedGenres,
                         expectedMembers
                 )
-                .setVideo(expectedVideo)
-                .setTrailer(expectedTrailer)
-                .setBanner(expectedBanner)
-                .setThumbnail(expectedThumb)
-                .setThumbnailHalf(expectedThumbHalf);
+                .updateVideoMedia(expectedVideo)
+                .updateTrailerMedia(expectedTrailer)
+                .updateBannerMedia(expectedBanner)
+                .updateThumbnailMedia(expectedThumb)
+                .updateThumbnailHalfMedia(expectedThumbHalf);
 
         final var expectedId = aVideo.getId();
 
@@ -105,7 +105,7 @@ class GetVideoByIdUseCaseTest extends UseCaseTest {
     }
 
     @Test
-    void givenInvalidId_whenCallsGetVideo_shouldReturnNotFound() {
+    public void givenInvalidId_whenCallsGetVideo_shouldReturnNotFound() {
         // given
         final var expectedErrorMessage = "Video with ID 123 was not found";
 
@@ -123,5 +123,4 @@ class GetVideoByIdUseCaseTest extends UseCaseTest {
         // then
         Assertions.assertEquals(expectedErrorMessage, actualError.getMessage());
     }
-
 }

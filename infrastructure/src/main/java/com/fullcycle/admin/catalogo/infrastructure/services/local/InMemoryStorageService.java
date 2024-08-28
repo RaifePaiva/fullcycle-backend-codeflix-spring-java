@@ -45,7 +45,7 @@ public class InMemoryStorageService implements StorageService {
     }
 
     @Override
-    public void deleteAll(final Collection<String> names) {
-        names.forEach(this.storage::remove);
+    public void deleteAll(final List<String> ids) {
+        ids.forEach(this.storage::remove);
     }
 }
