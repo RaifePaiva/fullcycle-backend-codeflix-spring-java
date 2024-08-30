@@ -8,6 +8,8 @@ on:
       - 'hotfix/**'
       - 'release/**'
       - 'modulos/**'
+      - 'main'
+      - 'dev'
 
   # Habilita o gatilho manual através da interface do Github Actions
   workflow_dispatch:
