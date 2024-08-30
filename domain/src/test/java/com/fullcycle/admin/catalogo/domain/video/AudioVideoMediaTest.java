@@ -1,10 +1,11 @@
 package com.fullcycle.admin.catalogo.domain.video;
 
+import com.fullcycle.admin.catalogo.domain.UnitTest;
 import com.fullcycle.admin.catalogo.domain.utils.IdUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class AudioVideoMediaTest {
+public class AudioVideoMediaTest extends UnitTest {
 
     @Test
     public void givenValidParams_whenCallsNewAudioVideo_ShouldReturnInstance() {
