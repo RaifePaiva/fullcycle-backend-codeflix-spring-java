@@ -1,6 +1,7 @@
 package com.fullcycle.admin.catalogo.infrastructure.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fullcycle.admin.catalogo.ApiTest;
 import com.fullcycle.admin.catalogo.ControllerTest;
 import com.fullcycle.admin.catalogo.application.category.create.CreateCategoryOutput;
 import com.fullcycle.admin.catalogo.application.category.create.CreateCategoryUseCase;
@@ -13,6 +14,7 @@ import com.fullcycle.admin.catalogo.application.category.update.UpdateCategoryOu
 import com.fullcycle.admin.catalogo.application.category.update.UpdateCategoryUseCase;
 import com.fullcycle.admin.catalogo.domain.category.Category;
 import com.fullcycle.admin.catalogo.domain.category.CategoryID;
+import com.fullcycle.admin.catalogo.domain.exceptions.DomainException;
 import com.fullcycle.admin.catalogo.domain.exceptions.NotFoundException;
 import com.fullcycle.admin.catalogo.domain.pagination.Pagination;
 import com.fullcycle.admin.catalogo.domain.validation.Error;
@@ -38,10 +40,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ControllerTest(controllers = CategoryAPI.class)
-class CategoryAPITest {
+public class CategoryAPITest {
 
     @Autowired
-    private MockMvc mockMvc;
+    private MockMvc mvc;
 
     @Autowired
     private ObjectMapper mapper;
@@ -62,7 +64,7 @@ class CategoryAPITest {
     private ListCategoriesUseCase listCategoriesUseCase;
 
     @Test
-    void givenAValidCommand_whenCallsCreateCategory_shouldReturnCategoryId() throws Exception {
+    public void givenAValidCommand_whenCallsCreateCategory_shouldReturnCategoryId() throws Exception {
         // given
         final var expectedName = "Filmes";
         final var expectedDescription = "A categoria mais assistida";
@@ -76,10 +78,11 @@ class CategoryAPITest {
 
         // when
         final var request = post("/categories")
+                .with(ApiTest.CATEGORIES_JWT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(aInput));
 
-        final var response = this.mockMvc.perform(request)
+        final var response = this.mvc.perform(request)
                 .andDo(print());
 
         // then
@@ -96,7 +99,7 @@ class CategoryAPITest {
     }
 
     @Test
-    void givenAInvalidName_whenCallsCreateCategory_thenShouldReturnNotification() throws Exception {
+    public void givenAInvalidName_whenCallsCreateCategory_thenShouldReturnNotification() throws Exception {
         // given
         final String expectedName = null;
         final var expectedDescription = "A categoria mais assistida";
@@ -111,10 +114,11 @@ class CategoryAPITest {
 
         // when
         final var request = post("/categories")
+                .with(ApiTest.CATEGORIES_JWT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(aInput));
 
-        final var response = this.mockMvc.perform(request)
+        final var response = this.mvc.perform(request)
                 .andDo(print());
 
         // then
@@ -132,7 +136,7 @@ class CategoryAPITest {
     }
 
     @Test
-    void givenAInvalidCommand_whenCallsCreateCategory_thenShouldReturnDomainException() throws Exception {
+    public void givenAInvalidCommand_whenCallsCreateCategory_thenShouldReturnDomainException() throws Exception {
         // given
         final String expectedName = null;
         final var expectedDescription = "A categoria mais assistida";
@@ -143,20 +147,22 @@ class CategoryAPITest {
                 new CreateCategoryRequest(expectedName, expectedDescription, expectedIsActive);
 
         when(createCategoryUseCase.execute(any()))
-                .thenReturn(Left(Notification.create(new Error(expectedMessage))));
+                .thenThrow(DomainException.with(new Error(expectedMessage)));
 
         // when
         final var request = post("/categories")
+                .with(ApiTest.CATEGORIES_JWT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(aInput));
 
-        final var response = this.mockMvc.perform(request)
+        final var response = this.mvc.perform(request)
                 .andDo(print());
 
         // then
         response.andExpect(status().isUnprocessableEntity())
                 .andExpect(header().string("Location", nullValue()))
                 .andExpect(header().string("Content-Type", MediaType.APPLICATION_JSON_VALUE))
+                .andExpect(jsonPath("$.message", equalTo(expectedMessage)))
                 .andExpect(jsonPath("$.errors", hasSize(1)))
                 .andExpect(jsonPath("$.errors[0].message", equalTo(expectedMessage)));
 
@@ -168,7 +174,7 @@ class CategoryAPITest {
     }
 
     @Test
-    void givenAValidId_whenCallsGetCategory_shouldReturnCategory() throws Exception {
+    public void givenAValidId_whenCallsGetCategory_shouldReturnCategory() throws Exception {
         // given
         final var expectedName = "Filmes";
         final var expectedDescription = "A categoria mais assistida";
@@ -184,10 +190,11 @@ class CategoryAPITest {
 
         // when
         final var request = get("/categories/{id}", expectedId)
+                .with(ApiTest.CATEGORIES_JWT)
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON);
 
-        final var response = this.mockMvc.perform(request)
+        final var response = this.mvc.perform(request)
                 .andDo(print());
 
         // then
@@ -205,7 +212,7 @@ class CategoryAPITest {
     }
 
     @Test
-    void givenAInvalidId_whenCallsGetCategory_shouldReturnNotFound() throws Exception {
+    public void givenAInvalidId_whenCallsGetCategory_shouldReturnNotFound() throws Exception {
         // given
         final var expectedErrorMessage = "Category with ID 123 was not found";
         final var expectedId = CategoryID.from("123");
@@ -215,10 +222,11 @@ class CategoryAPITest {
 
         // when
         final var request = get("/categories/{id}", expectedId.getValue())
+                .with(ApiTest.CATEGORIES_JWT)
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON);
 
-        final var response = this.mockMvc.perform(request)
+        final var response = this.mvc.perform(request)
                 .andDo(print());
 
         // then
@@ -227,7 +235,7 @@ class CategoryAPITest {
     }
 
     @Test
-    void givenAValidCommand_whenCallsUpdateCategory_shouldReturnCategoryId() throws Exception {
+    public void givenAValidCommand_whenCallsUpdateCategory_shouldReturnCategoryId() throws Exception {
         // given
         final var expectedId = "123";
         final var expectedName = "Filmes";
@@ -242,11 +250,12 @@ class CategoryAPITest {
 
         // when
         final var request = put("/categories/{id}", expectedId)
+                .with(ApiTest.CATEGORIES_JWT)
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(aCommand));
 
-        final var response = this.mockMvc.perform(request)
+        final var response = this.mvc.perform(request)
                 .andDo(print());
 
         // then
@@ -262,7 +271,7 @@ class CategoryAPITest {
     }
 
     @Test
-    void givenAInvalidName_whenCallsUpdateCategory_thenShouldReturnDomainException() throws Exception {
+    public void givenAInvalidName_whenCallsUpdateCategory_thenShouldReturnDomainException() throws Exception {
         // given
         final var expectedId = "123";
         final var expectedName = "Filmes";
@@ -280,11 +289,12 @@ class CategoryAPITest {
 
         // when
         final var request = put("/categories/{id}", expectedId)
+                .with(ApiTest.CATEGORIES_JWT)
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(aCommand));
 
-        final var response = this.mockMvc.perform(request)
+        final var response = this.mvc.perform(request)
                 .andDo(print());
 
         // then
@@ -301,7 +311,7 @@ class CategoryAPITest {
     }
 
     @Test
-    void givenACommandWithInvalidID_whenCallsUpdateCategory_shouldReturnNotFoundException() throws Exception {
+    public void givenACommandWithInvalidID_whenCallsUpdateCategory_shouldReturnNotFoundException() throws Exception {
         // given
         final var expectedId = "not-found";
         final var expectedName = "Filmes";
@@ -318,11 +328,12 @@ class CategoryAPITest {
 
         // when
         final var request = put("/categories/{id}", expectedId)
+                .with(ApiTest.CATEGORIES_JWT)
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(aCommand));
 
-        final var response = this.mockMvc.perform(request)
+        final var response = this.mvc.perform(request)
                 .andDo(print());
 
         // then
@@ -338,7 +349,7 @@ class CategoryAPITest {
     }
 
     @Test
-    void givenAValidId_whenCallsDeleteCategory_shouldReturnNoContent() throws Exception {
+    public void givenAValidId_whenCallsDeleteCategory_shouldReturnNoContent() throws Exception {
         // given
         final var expectedId = "123";
 
@@ -347,10 +358,11 @@ class CategoryAPITest {
 
         // when
         final var request = delete("/categories/{id}", expectedId)
+                .with(ApiTest.CATEGORIES_JWT)
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON);
 
-        final var response = this.mockMvc.perform(request)
+        final var response = this.mvc.perform(request)
                 .andDo(print());
 
         // then
@@ -360,7 +372,7 @@ class CategoryAPITest {
     }
 
     @Test
-    void givenValidParams_whenCallsListCategories_shouldReturnCategories() throws Exception {
+    public void givenValidParams_whenCallsListCategories_shouldReturnCategories() throws Exception {
         // given
         final var aCategory = Category.newCategory("Movies", null, true);
 
@@ -379,6 +391,7 @@ class CategoryAPITest {
 
         // when
         final var request = get("/categories")
+                .with(ApiTest.CATEGORIES_JWT)
                 .queryParam("page", String.valueOf(expectedPage))
                 .queryParam("perPage", String.valueOf(expectedPerPage))
                 .queryParam("sort", expectedSort)
@@ -387,7 +400,7 @@ class CategoryAPITest {
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON);
 
-        final var response = this.mockMvc.perform(request)
+        final var response = this.mvc.perform(request)
                 .andDo(print());
 
         // then
@@ -411,7 +424,4 @@ class CategoryAPITest {
                         && Objects.equals(expectedTerms, query.terms())
         ));
     }
-
-
-
 }

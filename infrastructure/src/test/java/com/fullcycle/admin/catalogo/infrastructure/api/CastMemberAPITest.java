@@ -1,7 +1,9 @@
 package com.fullcycle.admin.catalogo.infrastructure.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fullcycle.admin.catalogo.ApiTest;
 import com.fullcycle.admin.catalogo.ControllerTest;
+import com.fullcycle.admin.catalogo.domain.Fixture;
 import com.fullcycle.admin.catalogo.application.castmember.create.CreateCastMemberOutput;
 import com.fullcycle.admin.catalogo.application.castmember.create.DefaultCreateCastMemberUseCase;
 import com.fullcycle.admin.catalogo.application.castmember.delete.DefaultDeleteCastMemberUseCase;
@@ -11,7 +13,6 @@ import com.fullcycle.admin.catalogo.application.castmember.retrieve.list.CastMem
 import com.fullcycle.admin.catalogo.application.castmember.retrieve.list.DefaultListCastMembersUseCase;
 import com.fullcycle.admin.catalogo.application.castmember.update.DefaultUpdateCastMemberUseCase;
 import com.fullcycle.admin.catalogo.application.castmember.update.UpdateCastMemberOutput;
-import com.fullcycle.admin.catalogo.domain.Fixture;
 import com.fullcycle.admin.catalogo.domain.castmember.CastMember;
 import com.fullcycle.admin.catalogo.domain.castmember.CastMemberID;
 import com.fullcycle.admin.catalogo.domain.castmember.CastMemberType;
@@ -39,7 +40,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ControllerTest(controllers = CastMemberAPI.class)
-class CastMemberAPITest {
+public class CastMemberAPITest {
 
     @Autowired
     private MockMvc mvc;
@@ -63,7 +64,7 @@ class CastMemberAPITest {
     private DefaultUpdateCastMemberUseCase updateCastMemberUseCase;
 
     @Test
-    void givenAValidCommand_whenCallsCreateCastMember_shouldReturnItsIdentifier() throws Exception {
+    public void givenAValidCommand_whenCallsCreateCastMember_shouldReturnItsIdentifier() throws Exception {
         // given
         final var expectedName = Fixture.name();
         final var expectedType = Fixture.CastMembers.type();
@@ -77,6 +78,7 @@ class CastMemberAPITest {
 
         // when
         final var aRequest = post("/cast_members")
+                .with(ApiTest.CAST_MEMBERS_JWT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(aCommand));
 
@@ -96,7 +98,7 @@ class CastMemberAPITest {
     }
 
     @Test
-    void givenAnInvalidName_whenCallsCreateCastMember_shouldReturnNotification() throws Exception {
+    public void givenAnInvalidName_whenCallsCreateCastMember_shouldReturnNotification() throws Exception {
         // given
         final String expectedName = null;
         final var expectedType = Fixture.CastMembers.type();
@@ -111,6 +113,7 @@ class CastMemberAPITest {
 
         // when
         final var aRequest = post("/cast_members")
+                .with(ApiTest.CAST_MEMBERS_JWT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(aCommand));
 
@@ -131,7 +134,7 @@ class CastMemberAPITest {
     }
 
     @Test
-    void givenAValidId_whenCallsGetById_shouldReturnIt() throws Exception {
+    public void givenAValidId_whenCallsGetById_shouldReturnIt() throws Exception {
         // given
         final var expectedName = Fixture.name();
         final var expectedType = Fixture.CastMembers.type();
@@ -144,6 +147,7 @@ class CastMemberAPITest {
 
         // when
         final var aRequest = get("/cast_members/{id}", expectedId)
+                .with(ApiTest.CAST_MEMBERS_JWT)
                 .accept(MediaType.APPLICATION_JSON);
 
         final var response = this.mvc.perform(aRequest);
@@ -161,7 +165,7 @@ class CastMemberAPITest {
     }
 
     @Test
-    void givenAInvalidId_whenCallsGetByIdAndCastMemberDoesntExists_shouldReturnNotFound() throws Exception {
+    public void givenAInvalidId_whenCallsGetByIdAndCastMemberDoesntExists_shouldReturnNotFound() throws Exception {
         // given
         final var expectedErrorMessage = "CastMember with ID 123 was not found";
         final var expectedId = CastMemberID.from("123");
@@ -171,6 +175,7 @@ class CastMemberAPITest {
 
         // when
         final var aRequest = get("/cast_members/{id}", expectedId.getValue())
+                .with(ApiTest.CAST_MEMBERS_JWT)
                 .accept(MediaType.APPLICATION_JSON);
 
         final var response = this.mvc.perform(aRequest);
@@ -184,7 +189,7 @@ class CastMemberAPITest {
     }
 
     @Test
-    void givenAValidCommand_whenCallsUpdateCastMember_shouldReturnItsIdentifier() throws Exception {
+    public void givenAValidCommand_whenCallsUpdateCastMember_shouldReturnItsIdentifier() throws Exception {
         // given
         final var expectedName = Fixture.name();
         final var expectedType = Fixture.CastMembers.type();
@@ -200,6 +205,7 @@ class CastMemberAPITest {
 
         // when
         final var aRequest = put("/cast_members/{id}", expectedId.getValue())
+                .with(ApiTest.CAST_MEMBERS_JWT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(aCommand));
 
@@ -219,7 +225,7 @@ class CastMemberAPITest {
     }
 
     @Test
-    void givenAnInvalidName_whenCallsUpdateCastMember_shouldReturnNotification() throws Exception {
+    public void givenAnInvalidName_whenCallsUpdateCastMember_shouldReturnNotification() throws Exception {
         // given
         final var aMember = CastMember.newMember("Vin Di", CastMemberType.DIRECTOR);
         final var expectedId = aMember.getId();
@@ -237,6 +243,7 @@ class CastMemberAPITest {
 
         // when
         final var aRequest = put("/cast_members/{id}", expectedId.getValue())
+                .with(ApiTest.CAST_MEMBERS_JWT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(aCommand));
 
@@ -258,7 +265,7 @@ class CastMemberAPITest {
     }
 
     @Test
-    void givenAnInvalidId_whenCallsUpdateCastMember_shouldReturnNotFound() throws Exception {
+    public void givenAnInvalidId_whenCallsUpdateCastMember_shouldReturnNotFound() throws Exception {
         // given
         final var expectedId = CastMemberID.from("123");
 
@@ -275,6 +282,7 @@ class CastMemberAPITest {
 
         // when
         final var aRequest = put("/cast_members/{id}", expectedId.getValue())
+                .with(ApiTest.CAST_MEMBERS_JWT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(aCommand));
 
@@ -295,7 +303,7 @@ class CastMemberAPITest {
     }
 
     @Test
-    void givenAValidId_whenCallsDeleteById_shouldDeleteIt() throws Exception {
+    public void givenAValidId_whenCallsDeleteById_shouldDeleteIt() throws Exception {
         // given
         final var expectedId = "123";
 
@@ -303,7 +311,8 @@ class CastMemberAPITest {
                 .when(deleteCastMemberUseCase).execute(any());
 
         // when
-        final var aRequest = delete("/cast_members/{id}", expectedId);
+        final var aRequest = delete("/cast_members/{id}", expectedId)
+                .with(ApiTest.CAST_MEMBERS_JWT);
 
         final var response = this.mvc.perform(aRequest);
 
@@ -314,7 +323,7 @@ class CastMemberAPITest {
     }
 
     @Test
-    void givenValidParams_whenCallListCastMembers_shouldReturnIt() throws Exception {
+    public void givenValidParams_whenCallListCastMembers_shouldReturnIt() throws Exception {
         // given
         final var aMember = CastMember.newMember(Fixture.name(), Fixture.CastMembers.type());
 
@@ -334,6 +343,7 @@ class CastMemberAPITest {
 
         // when
         final var aRequest = get("/cast_members")
+                .with(ApiTest.CAST_MEMBERS_JWT)
                 .queryParam("page", String.valueOf(expectedPage))
                 .queryParam("perPage", String.valueOf(expectedPerPage))
                 .queryParam("search", expectedTerms)
@@ -364,7 +374,7 @@ class CastMemberAPITest {
     }
 
     @Test
-    void givenEmptyParams_whenCallListCastMembers_shouldUseDefaultsAndReturnIt() throws Exception {
+    public void givenEmptyParams_whenCallListCastMembers_shouldUseDefaultsAndReturnIt() throws Exception {
         // given
         final var aMember = CastMember.newMember(Fixture.name(), Fixture.CastMembers.type());
 
@@ -384,6 +394,7 @@ class CastMemberAPITest {
 
         // when
         final var aRequest = get("/cast_members")
+                .with(ApiTest.CAST_MEMBERS_JWT)
                 .accept(MediaType.APPLICATION_JSON);
 
         final var response = this.mvc.perform(aRequest);
@@ -407,5 +418,4 @@ class CastMemberAPITest {
                         && Objects.equals(expectedDirection, aQuery.direction())
         ));
     }
-
 }
