@@ -1,6 +1,7 @@
 package com.fullcycle.admin.catalogo.infrastructure.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fullcycle.admin.catalogo.ApiTest;
 import com.fullcycle.admin.catalogo.ControllerTest;
 import com.fullcycle.admin.catalogo.application.genre.create.CreateGenreOutput;
 import com.fullcycle.admin.catalogo.application.genre.create.CreateGenreUseCase;
@@ -17,6 +18,7 @@ import com.fullcycle.admin.catalogo.domain.exceptions.NotificationException;
 import com.fullcycle.admin.catalogo.domain.genre.Genre;
 import com.fullcycle.admin.catalogo.domain.genre.GenreID;
 import com.fullcycle.admin.catalogo.domain.pagination.Pagination;
+import com.fullcycle.admin.catalogo.domain.validation.Error;
 import com.fullcycle.admin.catalogo.domain.validation.handler.Notification;
 import com.fullcycle.admin.catalogo.infrastructure.genre.models.CreateGenreRequest;
 import com.fullcycle.admin.catalogo.infrastructure.genre.models.UpdateGenreRequest;
@@ -38,7 +40,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ControllerTest(controllers = GenreAPI.class)
-class GenreAPITest {
+public class GenreAPITest {
 
     @Autowired
     private MockMvc mvc;
@@ -62,7 +64,7 @@ class GenreAPITest {
     private ListGenreUseCase listGenreUseCase;
 
     @Test
-    void givenAValidCommand_whenCallsCreateGenre_shouldReturnGenreId() throws Exception {
+    public void givenAValidCommand_whenCallsCreateGenre_shouldReturnGenreId() throws Exception {
         // given
         final var expectedName = "Ação";
         final var expectedCategories = List.of("123", "456");
@@ -77,6 +79,7 @@ class GenreAPITest {
 
         // when
         final var aRequest = post("/genres")
+                .with(ApiTest.GENRES_JWT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(aCommand));
 
@@ -97,7 +100,7 @@ class GenreAPITest {
     }
 
     @Test
-    void givenAnInvalidName_whenCallsCreateGenre_shouldReturnNotification() throws Exception {
+    public void givenAnInvalidName_whenCallsCreateGenre_shouldReturnNotification() throws Exception {
         // given
         final String expectedName = null;
         final var expectedCategories = List.of("123", "456");
@@ -112,6 +115,7 @@ class GenreAPITest {
 
         // when
         final var aRequest = post("/genres")
+                .with(ApiTest.GENRES_JWT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(aCommand));
 
@@ -133,7 +137,7 @@ class GenreAPITest {
     }
 
     @Test
-    void givenAValidId_whenCallsGetGenreById_shouldReturnGenre() throws Exception {
+    public void givenAValidId_whenCallsGetGenreById_shouldReturnGenre() throws Exception {
         // given
         final var expectedName = "Ação";
         final var expectedCategories = List.of("123", "456");
@@ -153,6 +157,7 @@ class GenreAPITest {
 
         // when
         final var aRequest = get("/genres/{id}", expectedId)
+                .with(ApiTest.GENRES_JWT)
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON);
 
@@ -173,7 +178,7 @@ class GenreAPITest {
     }
 
     @Test
-    void givenAnInvalidId_whenCallsGetGenreById_shouldReturnNotFound() throws Exception {
+    public void givenAnInvalidId_whenCallsGetGenreById_shouldReturnNotFound() throws Exception {
         // given
         final var expectedErrorMessage = "Genre with ID 123 was not found";
         final var expectedId = GenreID.from("123");
@@ -183,6 +188,7 @@ class GenreAPITest {
 
         // when
         final var aRequest = get("/genres/{id}", expectedId.getValue())
+                .with(ApiTest.GENRES_JWT)
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON);
 
@@ -197,7 +203,7 @@ class GenreAPITest {
     }
 
     @Test
-    void givenAValidCommand_whenCallsUpdateGenre_shouldReturnGenreId() throws Exception {
+    public void givenAValidCommand_whenCallsUpdateGenre_shouldReturnGenreId() throws Exception {
         // given
         final var expectedName = "Ação";
         final var expectedCategories = List.of("123", "456");
@@ -214,6 +220,7 @@ class GenreAPITest {
 
         // when
         final var aRequest = put("/genres/{id}", expectedId)
+                .with(ApiTest.GENRES_JWT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(aCommand));
 
@@ -233,7 +240,7 @@ class GenreAPITest {
     }
 
     @Test
-    void givenAnInvalidName_whenCallsUpdateGenre_shouldReturnNotification() throws Exception {
+    public void givenAnInvalidName_whenCallsUpdateGenre_shouldReturnNotification() throws Exception {
         // given
         final String expectedName = null;
         final var expectedCategories = List.of("123", "456");
@@ -251,6 +258,7 @@ class GenreAPITest {
 
         // when
         final var aRequest = put("/genres/{id}", expectedId)
+                .with(ApiTest.GENRES_JWT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(aCommand));
 
@@ -271,7 +279,7 @@ class GenreAPITest {
     }
 
     @Test
-    void givenAValidId_whenCallsDeleteGenre_shouldBeOK() throws Exception {
+    public void givenAValidId_whenCallsDeleteGenre_shouldBeOK() throws Exception {
         // given
         final var expectedId = "123";
 
@@ -280,6 +288,7 @@ class GenreAPITest {
 
         // when
         final var aRequest = delete("/genres/{id}", expectedId)
+                .with(ApiTest.GENRES_JWT)
                 .accept(MediaType.APPLICATION_JSON);
 
         final var result = this.mvc.perform(aRequest);
@@ -291,7 +300,7 @@ class GenreAPITest {
     }
 
     @Test
-    void givenValidParams_whenCallsListGenres_shouldReturnGenres() throws Exception {
+    public void givenValidParams_whenCallsListGenres_shouldReturnGenres() throws Exception {
         // given
         final var aGenre = Genre.newGenre("Ação", false);
 
@@ -311,6 +320,7 @@ class GenreAPITest {
 
         // when
         final var aRequest = get("/genres")
+                .with(ApiTest.GENRES_JWT)
                 .queryParam("page", String.valueOf(expectedPage))
                 .queryParam("perPage", String.valueOf(expectedPerPage))
                 .queryParam("sort", expectedSort)
@@ -340,5 +350,4 @@ class GenreAPITest {
                         && Objects.equals(expectedTerms, query.terms())
         ));
     }
-
 }
