@@ -1,4 +1,6 @@
 amqp:
+  admin:
+    auto-create: true
   host: localhost
   port: 5672
   username: adm_videos
@@ -7,6 +9,10 @@ amqp:
 keycloak:
   realm: test
   host: http://test:8443
+
+logging:
+  level:
+    ROOT: info
 
 mysql:
   username: root
